@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct MyAuthApp: App {
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AuthMainView()
+                .preferredColorScheme(isDarkMode ? .dark : .light)
+                .modelContainer(for: TOTPAccount.self)
         }
     }
 }
