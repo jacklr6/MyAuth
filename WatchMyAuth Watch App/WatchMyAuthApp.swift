@@ -2,7 +2,7 @@
 //  WatchMyAuthApp.swift
 //  WatchMyAuth Watch App
 //
-//  Created by Jack Rogers on 5/28/25.
+//  Created by Jack Rogers on 5/31/25.
 //
 
 import SwiftUI
@@ -11,7 +11,7 @@ import SwiftUI
 struct WatchMyAuth_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            WatchMainView()
+            ContentView()
         }
     }
 }

@@ -6,6 +6,20 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FB91B3402DEBA5AA001AFD51 /* WatchMyAuth Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FB91B3362DEBA5A9001AFD51 /* WatchMyAuth Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FB91B33E2DEBA5AA001AFD51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB8F999E2DDA408600C1675E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB91B3352DEBA5A9001AFD51;
+			remoteInfo = "WatchMyAuth Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		FB91B30C2DE7B2EC001AFD51 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -13,6 +27,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
+				FB91B3402DEBA5AA001AFD51 /* WatchMyAuth Watch App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -21,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		FB8F99A62DDA408600C1675E /* MyAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB91B3362DEBA5A9001AFD51 /* WatchMyAuth Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchMyAuth Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -31,6 +47,21 @@
 			);
 			target = FB8F99A52DDA408600C1675E /* MyAuth */;
 		};
+		FB91B34C2DEBAA19001AFD51 /* Exceptions for "MyAuth" folder in "WatchMyAuth Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Security/Keychain.swift,
+				TOTP/TOTPGenerator.swift,
+			);
+			target = FB91B3352DEBA5A9001AFD51 /* WatchMyAuth Watch App */;
+		};
+		FB91B3512DEBAE0C001AFD51 /* Exceptions for "WatchMyAuth Watch App" folder in "WatchMyAuth Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = FB91B3352DEBA5A9001AFD51 /* WatchMyAuth Watch App */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -38,14 +69,30 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				FB8F99D12DDA853D00C1675E /* Exceptions for "MyAuth" folder in "MyAuth" target */,
+				FB91B34C2DEBAA19001AFD51 /* Exceptions for "MyAuth" folder in "WatchMyAuth Watch App" target */,
 			);
 			path = MyAuth;
+			sourceTree = "<group>";
+		};
+		FB91B3372DEBA5A9001AFD51 /* WatchMyAuth Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				FB91B3512DEBAE0C001AFD51 /* Exceptions for "WatchMyAuth Watch App" folder in "WatchMyAuth Watch App" target */,
+			);
+			path = "WatchMyAuth Watch App";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		FB8F99A32DDA408600C1675E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB91B3332DEBA5A9001AFD51 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -59,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				FB8F99A82DDA408600C1675E /* MyAuth */,
+				FB91B3372DEBA5A9001AFD51 /* WatchMyAuth Watch App */,
 				FB8F99A72DDA408600C1675E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				FB8F99A62DDA408600C1675E /* MyAuth.app */,
+				FB91B3362DEBA5A9001AFD51 /* WatchMyAuth Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +135,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FB91B33F2DEBA5AA001AFD51 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				FB8F99A82DDA408600C1675E /* MyAuth */,
@@ -95,6 +145,28 @@
 			);
 			productName = MyAuth;
 			productReference = FB8F99A62DDA408600C1675E /* MyAuth.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FB91B3352DEBA5A9001AFD51 /* WatchMyAuth Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB91B3412DEBA5AA001AFD51 /* Build configuration list for PBXNativeTarget "WatchMyAuth Watch App" */;
+			buildPhases = (
+				FB91B3322DEBA5A9001AFD51 /* Sources */,
+				FB91B3332DEBA5A9001AFD51 /* Frameworks */,
+				FB91B3342DEBA5A9001AFD51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				FB91B3372DEBA5A9001AFD51 /* WatchMyAuth Watch App */,
+			);
+			name = "WatchMyAuth Watch App";
+			packageProductDependencies = (
+			);
+			productName = "WatchMyAuth Watch App";
+			productReference = FB91B3362DEBA5A9001AFD51 /* WatchMyAuth Watch App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -108,6 +180,9 @@
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					FB8F99A52DDA408600C1675E = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					FB91B3352DEBA5A9001AFD51 = {
 						CreatedOnToolsVersion = 16.3;
 					};
 				};
@@ -127,12 +202,20 @@
 			projectRoot = "";
 			targets = (
 				FB8F99A52DDA408600C1675E /* MyAuth */,
+				FB91B3352DEBA5A9001AFD51 /* WatchMyAuth Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FB8F99A42DDA408600C1675E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB91B3342DEBA5A9001AFD51 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -149,7 +232,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FB91B3322DEBA5A9001AFD51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB91B33F2DEBA5AA001AFD51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB91B3352DEBA5A9001AFD51 /* WatchMyAuth Watch App */;
+			targetProxy = FB91B33E2DEBA5AA001AFD51 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		FB8F99AF2DDA408700C1675E /* Debug */ = {
@@ -335,6 +433,68 @@
 			};
 			name = Release;
 		};
+		FB91B3422DEBA5AA001AFD51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "WatchMyAuth Watch App/WatchMyAuth Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XJPKYRAJFZ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/WatchMyAuth Watch App/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = WatchMyAuth;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.jacklr.MyAuth;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jacklr.MyAuth.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Debug;
+		};
+		FB91B3432DEBA5AA001AFD51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "WatchMyAuth Watch App/WatchMyAuth Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XJPKYRAJFZ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/WatchMyAuth Watch App/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = WatchMyAuth;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.jacklr.MyAuth;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jacklr.MyAuth.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -352,6 +512,15 @@
 			buildConfigurations = (
 				FB8F99B22DDA408700C1675E /* Debug */,
 				FB8F99B32DDA408700C1675E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB91B3412DEBA5AA001AFD51 /* Build configuration list for PBXNativeTarget "WatchMyAuth Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB91B3422DEBA5AA001AFD51 /* Debug */,
+				FB91B3432DEBA5AA001AFD51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
