@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 import Foundation
 
-struct SettingsView: View {
+struct iPhoneSettingsView: View {
     @Environment(\.dismiss) private var dismiss
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     @AppStorage("showProgressView") private var showProgressView: Bool = true
@@ -257,6 +257,6 @@ struct DatePickerView: View {
 }
 
 #Preview {
-    SettingsView()
+    iPhoneSettingsView()
 //    DatePickerView()
 }

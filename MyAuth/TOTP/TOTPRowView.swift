@@ -23,6 +23,7 @@ struct TOTPRowView: View {
 
     var body: some View {
         VStack {
+#if os(iOS)
             HStack {
                 VStack(alignment: .leading) {
                     Text(viewModel.account.issuer)
@@ -67,29 +68,43 @@ struct TOTPRowView: View {
                 }
                 .frame(height: 5)
             }
+#endif
+
+#if os(watchOS)
+            VStack {
+                HStack {
+                    Text(viewModel.account.issuer)
+                        .font(.headline)
+                    
+//                    Divider()
+                    
+                    Text(viewModel.account.accountName)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .lineLimit(1)
+                }
+                
+                Divider()
+                
+                HStack {
+                    Text(viewModel.code)
+                        .font(.system(size: 28, weight: .bold, design: .monospaced))
+                        .contentTransition(.numericText())
+                    
+                    Spacer()
+                    
+                    Text("\(viewModel.timeRemaining)s")
+                        .padding(.leading, -5)
+                        .contentTransition(.numericText())
+                        .font(.footnote)
+                        .foregroundColor(Color.green)
+                }
+                .animation(.default, value: viewModel.code)
+                .animation(.default, value: viewModel.timeRemaining)
+            }
+#endif
+            
         }
         .padding(.vertical, 5)
     }
 }
-
-#Preview {
-    AuthMainView()
-        .modelContainer(previewContainer1)
-}
-
-let previewContainer1: ModelContainer = {
-    let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: TOTPAccount.self, configurations: config)
-    
-    Task { @MainActor in
-        let sampleData = [
-            TOTPAccount(issuer: "GitHub", accountName: "user@example.com", secret: "JBSWY3DPEHPK3PXP", seconds: 30),
-            TOTPAccount(issuer: "Google", accountName: "user@gmail.com", secret: "JBSWY3DPEHPK3PXP", seconds: 30)
-        ]
-        for account in sampleData {
-            container.mainContext.insert(account)
-        }
-    }
-
-    return container
-}()

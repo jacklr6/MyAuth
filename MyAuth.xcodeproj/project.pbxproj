@@ -51,7 +51,10 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Security/Keychain.swift,
+				TOTP/TOTPAccount.swift,
+				TOTP/TOTPAccountViewModel.swift,
 				TOTP/TOTPGenerator.swift,
+				TOTP/TOTPRowView.swift,
 			);
 			target = FB91B3352DEBA5A9001AFD51 /* WatchMyAuth Watch App */;
 		};
