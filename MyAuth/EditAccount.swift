@@ -14,6 +14,8 @@ struct EditAccount: View {
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
     
+    @AppStorage("isAppFocused") private var isAppFocused: Bool = true
+    
     @State private var isUnlocked: Bool = false
     let availableIcons = ["GitHub", "Google"]
     @State private var iconAvailable: Bool = false
@@ -80,7 +82,8 @@ struct EditAccount: View {
                         
                         Text("\(account.secret)")
                             .monospaced()
-                            .blur(radius: isUnlocked ? 0 : 5)
+                            .blur(radius: isAppFocused ? 0 : 10)
+                            .blur(radius: isUnlocked ? 0 : 10)
                             .frame(maxWidth: .infinity)
                             .onTapGesture {
                                 if isUnlocked == false {

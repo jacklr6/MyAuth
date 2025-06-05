@@ -6,17 +6,27 @@
 //
 
 import SwiftUI
+import SwiftData
 import UIKit
 import Foundation
 
 struct iPhoneSettingsView: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var context
+    @Query private var accounts: [TOTPAccount]
+    
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     @AppStorage("showProgressView") private var showProgressView: Bool = true
     @AppStorage("timerAccentColorHex") private var timerAccentColorHex: String = "#F19A37"
     @State private var timerAccentColor: Color = .orange
     @AppStorage("progressAccentColorHex") private var progressAccentColorHex: String = "#F19A37"
     @State private var progressAccentColor: Color = .orange
+    @State private var showResetWarning: Bool = false
+    @State private var showDeleteWarning: Bool = false
+    
+    var appVersion: String {
+        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
+    }
     
     var body: some View {
         NavigationStack {
@@ -59,26 +69,67 @@ struct iPhoneSettingsView: View {
                                     }
                             }
                             
-                            NavigationLink(destination: DatePickerView()) {
-                                Text("Header Date Format Picker")
+                            NavigationLink("Header Date Format Picker") {
+                                DatePickerView()
+                                    .navigationBarBackButtonHidden(true)
                             }
                         }
-                    }
-                }
-                
-                VStack {
-                    Spacer()
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(.ultraThinMaterial)
-                        .frame(width: UIScreen.main.bounds.width * 0.65, height: 60)
-                        .overlay(
-                            Text("Tap to Close")
-                                .foregroundStyle(.primary)
-                                .font(.system(size: 22, weight: .semibold))
-                        )
-                        .onTapGesture {
-                            dismiss()
+                        
+                        Section(header: Text("Your Data"), footer: Text("Remove all data in MyAuth.")) {
+                            Button(action: {
+                                showResetWarning = true
+                            }) {
+                                HStack {
+                                    Text("Reset All Settings")
+                                    Spacer()
+                                    Image(systemName: "slider.horizontal.2.arrow.trianglehead.counterclockwise")
+                                }
+                            }
+                            .foregroundStyle(.red)
+                            .fontWeight(.semibold)
+                            .alert(isPresented: $showResetWarning) {
+                                Alert(title: Text("Are you sure?"),
+                                      message: Text("This resets all settings back to the defaults."),
+                                      primaryButton: .destructive(Text("Delete")) { isDarkMode = false; showProgressView = true; timerAccentColorHex = "#F19A37"; timerAccentColor = .orange; progressAccentColorHex = "#F19A37"; progressAccentColor = .orange; showResetWarning = false },
+                                      secondaryButton: .cancel() { showResetWarning = false }
+                                )
+                            }
+                            
+                            Button(action: {
+                                showDeleteWarning = true
+                            }) {
+                                HStack {
+                                    Text("Delete All Accounts")
+                                    Spacer()
+                                    Image(systemName: "trash")
+                                }
+                            }
+                            .foregroundStyle(.red)
+                            .fontWeight(.semibold)
+                            .alert(isPresented: $showDeleteWarning) {
+                                Alert(title: Text("Are you sure?"),
+                                      message: Text("Deleting all accounts will remove all saved accounts and settings."),
+                                      primaryButton: .destructive(Text("Delete")) { deleteAllAccounts(); showDeleteWarning = false },
+                                      secondaryButton: .cancel() { showDeleteWarning = false }
+                                )
+                            }
                         }
+                        
+                        Section {
+                            HStack {
+                                Spacer()
+                                VStack {
+                                    Text("MyAuth for iOS | \(Text("\(appVersion) Beta").fontWeight(.bold).foregroundStyle(LinearGradient(gradient: Gradient(colors: [.green, .blue]), startPoint: .topLeading, endPoint: .bottomTrailing)))")
+                                    Text("Jack Rogers | 2025")
+                                }
+                                .font(.footnote)
+                                Spacer()
+                            }
+                            .foregroundStyle(.secondary)
+                            .listRowBackground(Color.clear)
+                            .ignoresSafeArea(.all)
+                        }
+                    }
                 }
             }
             .navigationTitle("Settings")
@@ -87,8 +138,24 @@ struct iPhoneSettingsView: View {
                     timerAccentColor = savedColor
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: { dismiss() }) {
+                        Image(systemName: "xmark")
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.black)
+                    }
+                }
+            }
         }
         .preferredColorScheme(isDarkMode ? .dark : .light)
+    }
+    
+    private func deleteAllAccounts() {
+        for account in accounts {
+            KeychainHelper.delete(forKey: account.secret)
+            context.delete(account)
+        }
     }
 }
 
@@ -141,6 +208,7 @@ extension Color {
 }
 
 struct DatePickerView: View {
+    @Environment(\.dismiss) private var dismiss
     @State private var currentTime = Date()
     let dateFormats: [(name: String, format: (Date) -> String)] = [
         ("Abbreviated Date", { $0.formatted(date: .abbreviated, time: .omitted) }),
@@ -190,6 +258,18 @@ struct DatePickerView: View {
             }
             .navigationTitle("Date Format")
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        HStack {
+                            Image(systemName: "chevron.left")
+                            Text("Settings")
+                                .padding(.leading, -5)
+                        }
+                    }
+                }
+                
                 ToolbarItem(placement: .principal) {
                     Text(currentFormattedDate())
                         .contentTransition(.numericText())

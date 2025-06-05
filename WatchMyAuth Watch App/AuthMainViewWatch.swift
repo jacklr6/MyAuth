@@ -14,32 +14,44 @@ struct AuthMainViewWatch: View {
 
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(accounts.map { TOTPAccountViewModel(account: $0) }, id: \.id) { viewModel in
-                    TOTPRowView(viewModel: viewModel)
-                }
-                
-                Section {
-                    Button(action: {
-                        showSettings = true
-                    }) {
-                        Label("Settings", systemImage: "gear")
-                            .foregroundColor(.blue)
+            VStack {
+                if accounts.isEmpty {
+                    VStack {
+                        Image(systemName: "person.crop.circle.badge.questionmark")
+                            .font(.system(size: 72))
+                        Text("No Accounts Found!")
+                            .font(.system(size: 20, weight: .semibold))
+                        Text("Add an account in the MyAuth iPhone App.")
+                            .font(.system(size: 15))
+                            .multilineTextAlignment(.center)
+                    }
+                } else {
+                    List {
+                        ForEach(accounts.map { TOTPAccountViewModel(account: $0) }, id: \.id) { viewModel in
+                            TOTPRowView(viewModel: viewModel)
+                        }
+                        
+                        Section {
+                            Button(action: {
+                                showSettings = true
+                            }) {
+                                Label("Settings", systemImage: "gear")
+                                    .foregroundColor(.blue)
+                            }
+                        }
                     }
                 }
             }
             .navigationTitle("MyAuth")
         }
         .sheet(isPresented: $showSettings) {
-            VStack {
-                Text("Settings")
-            }
+            WatchSettingsView()
         }
     }
 }
 
 #Preview {
-    ContentView()
+    AuthMainViewWatch()
         .modelContainer(previewContainer1)
 }
 

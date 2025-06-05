@@ -13,9 +13,11 @@ struct TOTPRowView: View {
     @ObservedObject var viewModel: TOTPAccountViewModel
     @State private var currentTime = Date()
     
+    @AppStorage("isAppFocused") private var isAppFocused: Bool = true
     @AppStorage("showProgressView") private var showProgressView: Bool = true
     @AppStorage("timerAccentColorHex") private var timerAccentColorHex: String = "#F19A37"
     @AppStorage("progressAccentColorHex") private var progressAccentColorHex: String = "#F19A37"
+    @AppStorage("showCountdown") private var showCountdown: Bool = true
     
     var progress: CGFloat {
         CGFloat(viewModel.timeRemaining) / CGFloat(viewModel.account.seconds)
@@ -39,6 +41,7 @@ struct TOTPRowView: View {
                     Text(viewModel.code)
                         .font(.system(size: 28, weight: .bold, design: .monospaced))
                         .contentTransition(.numericText())
+                        .blur(radius: isAppFocused ? 0 : 10)
                     
                     HStack {
                         Text("Expires in")
@@ -46,6 +49,7 @@ struct TOTPRowView: View {
                             .padding(.leading, -5)
                             .contentTransition(.numericText())
                     }
+                    .blur(radius: isAppFocused ? 0 : 10)
                     .font(.caption)
                     .foregroundColor(Color(hex: timerAccentColorHex))
                 }
@@ -62,7 +66,7 @@ struct TOTPRowView: View {
                         
                         RoundedRectangle(cornerRadius: 8, style: .continuous)
                             .frame(width: geometry.size.width * progress, height: 5)
-                            .foregroundColor(Color(hex: progressAccentColorHex))
+                            .foregroundColor(isAppFocused ? Color(hex: progressAccentColorHex) : Color.clear)
                             .animation(.bouncy(duration: 0.3, extraBounce: 0.2), value: progress)
                     }
                 }
@@ -75,8 +79,6 @@ struct TOTPRowView: View {
                 HStack {
                     Text(viewModel.account.issuer)
                         .font(.headline)
-                    
-//                    Divider()
                     
                     Text(viewModel.account.accountName)
                         .font(.subheadline)
@@ -91,13 +93,15 @@ struct TOTPRowView: View {
                         .font(.system(size: 28, weight: .bold, design: .monospaced))
                         .contentTransition(.numericText())
                     
-                    Spacer()
-                    
-                    Text("\(viewModel.timeRemaining)s")
-                        .padding(.leading, -5)
-                        .contentTransition(.numericText())
-                        .font(.footnote)
-                        .foregroundColor(Color.green)
+                    if showCountdown == true {
+                        Spacer()
+                        
+                        Text("\(viewModel.timeRemaining)s")
+                            .padding(.leading, -5)
+                            .contentTransition(.numericText())
+                            .font(.footnote)
+                            .foregroundColor(Color.green)
+                    }
                 }
                 .animation(.default, value: viewModel.code)
                 .animation(.default, value: viewModel.timeRemaining)

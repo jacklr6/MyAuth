@@ -43,9 +43,11 @@ struct QRScannerView: View {
         .ignoresSafeArea()
         
         ZStack(alignment: .bottom) {
-            RoundedRectangle(cornerRadius: 20)
+            Rectangle()
                 .fill(.ultraThinMaterial)
                 .frame(width: UIScreen.main.bounds.width * 0.65, height: 60)
+                .cornerRadius(20)
+                .shadow(radius: 5)
                 .overlay(
                     Text("Scan a QR Code")
                         .foregroundStyle(.primary)

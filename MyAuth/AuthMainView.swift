@@ -12,6 +12,7 @@ struct AuthMainView: View {
     @Environment(\.modelContext) private var context
     @Query private var accounts: [TOTPAccount]
     @State var viewModels: [TOTPAccountViewModel] = []
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     
     @AppStorage("selectedFormat") private var selectedFormat: String = "Standard Time"
     var formattedDate: String {
@@ -33,11 +34,13 @@ struct AuthMainView: View {
         let format = formats.first(where: { $0.name == selectedFormat })?.format
         return format?(Date()) ?? Date().formatted()
     }
-
+    
     @State private var isPresentingScanner = false
     @State private var currentTime = Date()
     @State private var settingsAlert: Bool = false
     @State private var profileAlert: Bool = false
+    @State private var showNoAccount: Double = 0
+    @State private var showMoreAccountInfo: Double = 0
     
     var body: some View {
         NavigationView {
@@ -60,6 +63,8 @@ struct AuthMainView: View {
                     .frame(width: UIScreen.main.bounds.width * 0.8)
                     .multilineTextAlignment(.center)
                     .offset(y: -40)
+                    .opacity(showNoAccount)
+                    .animation(.easeInOut(duration: 0.6), value: showNoAccount)
                 } else {
                     List {
                         ForEach(viewModels) { viewModel in
@@ -76,18 +81,42 @@ struct AuthMainView: View {
                                 }
                             }
                         }
+                        
+                        if showMoreAccountInfo == 1 {
+                            Section {
+                                HStack {
+                                    Spacer()
+                                    VStack {
+                                        Image(systemName: "info.circle")
+                                            .font(.system(size: 32))
+                                            .padding(1)
+                                        Text("See More Info")
+                                            .font(.headline)
+                                        Text("Tap on an account to see more information about that account.")
+                                    }
+                                    .multilineTextAlignment(.center)
+                                    .padding(7)
+                                    Spacer()
+                                }
+                            }
+                        }
                     }
                     .animation(.easeInOut(duration: 0.3), value: accounts)
                 }
             }
             .onAppear {
                 createViewModels()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                    withAnimation() {
+                        showNoAccount = 1
+                    }
+                })
             }
             .onChange(of: accounts) { _, _ in
                 createViewModels()
             }
             .navigationTitle("MyAuth")
-            .fullScreenCover(isPresented: $settingsAlert) { SettingsView() }
+            .sheet(isPresented: $settingsAlert) { iPhoneSettingsView() }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     HStack {
@@ -149,6 +178,7 @@ struct AuthMainView: View {
         .onAppear {
             startTimer()
         }
+        .preferredColorScheme(isDarkMode ? .dark : .light)
     }
     
     func startTimer() {
