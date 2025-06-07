@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FB91B3402DEBA5AA001AFD51 /* WatchMyAuth Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FB91B3362DEBA5A9001AFD51 /* WatchMyAuth Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FB91B3402DEBA5AA001AFD51 /* MyAuthWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FB91B3362DEBA5A9001AFD51 /* MyAuthWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,7 +27,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				FB91B3402DEBA5AA001AFD51 /* WatchMyAuth Watch App.app in Embed Watch Content */,
+				FB91B3402DEBA5AA001AFD51 /* MyAuthWatch.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -36,7 +36,7 @@
 
 /* Begin PBXFileReference section */
 		FB8F99A62DDA408600C1675E /* MyAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB91B3362DEBA5A9001AFD51 /* WatchMyAuth Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchMyAuth Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB91B3362DEBA5A9001AFD51 /* MyAuthWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAuthWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -47,7 +47,7 @@
 			);
 			target = FB8F99A52DDA408600C1675E /* MyAuth */;
 		};
-		FB91B34C2DEBAA19001AFD51 /* Exceptions for "MyAuth" folder in "WatchMyAuth Watch App" target */ = {
+		FB91B34C2DEBAA19001AFD51 /* Exceptions for "MyAuth" folder in "MyAuthWatch" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Security/Keychain.swift,
@@ -56,14 +56,14 @@
 				TOTP/TOTPGenerator.swift,
 				TOTP/TOTPRowView.swift,
 			);
-			target = FB91B3352DEBA5A9001AFD51 /* WatchMyAuth Watch App */;
+			target = FB91B3352DEBA5A9001AFD51 /* MyAuthWatch */;
 		};
-		FB91B3512DEBAE0C001AFD51 /* Exceptions for "WatchMyAuth Watch App" folder in "WatchMyAuth Watch App" target */ = {
+		FB91B3512DEBAE0C001AFD51 /* Exceptions for "WatchMyAuth Watch App" folder in "MyAuthWatch" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = FB91B3352DEBA5A9001AFD51 /* WatchMyAuth Watch App */;
+			target = FB91B3352DEBA5A9001AFD51 /* MyAuthWatch */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -72,7 +72,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				FB8F99D12DDA853D00C1675E /* Exceptions for "MyAuth" folder in "MyAuth" target */,
-				FB91B34C2DEBAA19001AFD51 /* Exceptions for "MyAuth" folder in "WatchMyAuth Watch App" target */,
+				FB91B34C2DEBAA19001AFD51 /* Exceptions for "MyAuth" folder in "MyAuthWatch" target */,
 			);
 			path = MyAuth;
 			sourceTree = "<group>";
@@ -80,7 +80,7 @@
 		FB91B3372DEBA5A9001AFD51 /* WatchMyAuth Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				FB91B3512DEBAE0C001AFD51 /* Exceptions for "WatchMyAuth Watch App" folder in "WatchMyAuth Watch App" target */,
+				FB91B3512DEBAE0C001AFD51 /* Exceptions for "WatchMyAuth Watch App" folder in "MyAuthWatch" target */,
 			);
 			path = "WatchMyAuth Watch App";
 			sourceTree = "<group>";
@@ -118,7 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				FB8F99A62DDA408600C1675E /* MyAuth.app */,
-				FB91B3362DEBA5A9001AFD51 /* WatchMyAuth Watch App.app */,
+				FB91B3362DEBA5A9001AFD51 /* MyAuthWatch.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,9 +150,9 @@
 			productReference = FB8F99A62DDA408600C1675E /* MyAuth.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FB91B3352DEBA5A9001AFD51 /* WatchMyAuth Watch App */ = {
+		FB91B3352DEBA5A9001AFD51 /* MyAuthWatch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FB91B3412DEBA5AA001AFD51 /* Build configuration list for PBXNativeTarget "WatchMyAuth Watch App" */;
+			buildConfigurationList = FB91B3412DEBA5AA001AFD51 /* Build configuration list for PBXNativeTarget "MyAuthWatch" */;
 			buildPhases = (
 				FB91B3322DEBA5A9001AFD51 /* Sources */,
 				FB91B3332DEBA5A9001AFD51 /* Frameworks */,
@@ -165,11 +165,11 @@
 			fileSystemSynchronizedGroups = (
 				FB91B3372DEBA5A9001AFD51 /* WatchMyAuth Watch App */,
 			);
-			name = "WatchMyAuth Watch App";
+			name = MyAuthWatch;
 			packageProductDependencies = (
 			);
 			productName = "WatchMyAuth Watch App";
-			productReference = FB91B3362DEBA5A9001AFD51 /* WatchMyAuth Watch App.app */;
+			productReference = FB91B3362DEBA5A9001AFD51 /* MyAuthWatch.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -205,7 +205,7 @@
 			projectRoot = "";
 			targets = (
 				FB8F99A52DDA408600C1675E /* MyAuth */,
-				FB91B3352DEBA5A9001AFD51 /* WatchMyAuth Watch App */,
+				FB91B3352DEBA5A9001AFD51 /* MyAuthWatch */,
 			);
 		};
 /* End PBXProject section */
@@ -247,7 +247,7 @@
 /* Begin PBXTargetDependency section */
 		FB91B33F2DEBA5AA001AFD51 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FB91B3352DEBA5A9001AFD51 /* WatchMyAuth Watch App */;
+			target = FB91B3352DEBA5A9001AFD51 /* MyAuthWatch */;
 			targetProxy = FB91B33E2DEBA5AA001AFD51 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -521,7 +521,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FB91B3412DEBA5AA001AFD51 /* Build configuration list for PBXNativeTarget "WatchMyAuth Watch App" */ = {
+		FB91B3412DEBA5AA001AFD51 /* Build configuration list for PBXNativeTarget "MyAuthWatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FB91B3422DEBA5AA001AFD51 /* Debug */,

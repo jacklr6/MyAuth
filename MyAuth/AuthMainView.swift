@@ -36,14 +36,16 @@ struct AuthMainView: View {
     }
     
     @State private var isPresentingScanner = false
+    @State private var isPresentingManual = false
     @State private var currentTime = Date()
     @State private var settingsAlert: Bool = false
     @State private var profileAlert: Bool = false
     @State private var showNoAccount: Double = 0
     @State private var showMoreAccountInfo: Double = 0
+    @State private var shouldShowMenu = true
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 if viewModels.isEmpty {
                     VStack {
@@ -147,6 +149,19 @@ struct AuthMainView: View {
                         }) {
                             Image(systemName: "plus")
                         }
+                        .contextMenu {
+                            Button {
+                                isPresentingScanner = true
+                            } label: {
+                                Label("Use QR Code Scanner", systemImage: "qrcode.viewfinder")
+                            }
+                            
+                            Button {
+                                isPresentingManual = true
+                            } label: {
+                                Label("Enter Manually", systemImage: "pencil")
+                            }
+                        }
                         .sheet(isPresented: $isPresentingScanner) {
                             QRScannerView { result in
                                 isPresentingScanner = false
@@ -155,7 +170,9 @@ struct AuthMainView: View {
                                 }
                             }
                         }
-                        .frame(width: 40)
+                        .sheet(isPresented: $isPresentingManual) {
+                            EnterManually()
+                        }
                         
                         Button(action: {
                             settingsAlert.toggle()
@@ -210,6 +227,12 @@ struct AuthMainView: View {
     
     private func createViewModels() {
         viewModels = accounts.map { TOTPAccountViewModel(account: $0) }
+    }
+}
+
+struct EnterManually: View {
+    var body: some View {
+        Text("Enter Manually")
     }
 }
 
