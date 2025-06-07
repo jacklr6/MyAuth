@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FB8F99A52DDA408600C1675E"
-               BuildableName = "MyAuth.app"
-               BlueprintName = "MyAuth"
-               ReferencedContainer = "container:MyAuth.xcodeproj">
+               BuildableName = "MyAuthPlus.app"
+               BlueprintName = "MyAuthPlus"
+               ReferencedContainer = "container:MyAuthPlus.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FB8F99A52DDA408600C1675E"
-            BuildableName = "MyAuth.app"
-            BlueprintName = "MyAuth"
-            ReferencedContainer = "container:MyAuth.xcodeproj">
+            BuildableName = "MyAuthPlus.app"
+            BlueprintName = "MyAuthPlus"
+            ReferencedContainer = "container:MyAuthPlus.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FB8F99A52DDA408600C1675E"
-            BuildableName = "MyAuth.app"
-            BlueprintName = "MyAuth"
-            ReferencedContainer = "container:MyAuth.xcodeproj">
+            BuildableName = "MyAuthPlus.app"
+            BlueprintName = "MyAuthPlus"
+            ReferencedContainer = "container:MyAuthPlus.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FB91B3402DEBA5AA001AFD51 /* MyAuthWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FB91B3362DEBA5A9001AFD51 /* MyAuthWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FB91B3402DEBA5AA001AFD51 /* MyAuthPlusWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FB91B3362DEBA5A9001AFD51 /* MyAuthPlusWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,7 +27,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				FB91B3402DEBA5AA001AFD51 /* MyAuthWatch.app in Embed Watch Content */,
+				FB91B3402DEBA5AA001AFD51 /* MyAuthPlusWatch.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -35,19 +35,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		FB8F99A62DDA408600C1675E /* MyAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB91B3362DEBA5A9001AFD51 /* MyAuthWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAuthWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB8F99A62DDA408600C1675E /* MyAuthPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAuthPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB91B3362DEBA5A9001AFD51 /* MyAuthPlusWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAuthPlusWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		FB8F99D12DDA853D00C1675E /* Exceptions for "MyAuth" folder in "MyAuth" target */ = {
+		FB8F99D12DDA853D00C1675E /* Exceptions for "MyAuth" folder in "MyAuthPlus" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = FB8F99A52DDA408600C1675E /* MyAuth */;
+			target = FB8F99A52DDA408600C1675E /* MyAuthPlus */;
 		};
-		FB91B34C2DEBAA19001AFD51 /* Exceptions for "MyAuth" folder in "MyAuthWatch" target */ = {
+		FB91B34C2DEBAA19001AFD51 /* Exceptions for "MyAuth" folder in "MyAuthPlusWatch" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Security/Keychain.swift,
@@ -56,14 +56,14 @@
 				TOTP/TOTPGenerator.swift,
 				TOTP/TOTPRowView.swift,
 			);
-			target = FB91B3352DEBA5A9001AFD51 /* MyAuthWatch */;
+			target = FB91B3352DEBA5A9001AFD51 /* MyAuthPlusWatch */;
 		};
-		FB91B3512DEBAE0C001AFD51 /* Exceptions for "WatchMyAuth Watch App" folder in "MyAuthWatch" target */ = {
+		FB91B3512DEBAE0C001AFD51 /* Exceptions for "WatchMyAuth Watch App" folder in "MyAuthPlusWatch" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = FB91B3352DEBA5A9001AFD51 /* MyAuthWatch */;
+			target = FB91B3352DEBA5A9001AFD51 /* MyAuthPlusWatch */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -71,8 +71,8 @@
 		FB8F99A82DDA408600C1675E /* MyAuth */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				FB8F99D12DDA853D00C1675E /* Exceptions for "MyAuth" folder in "MyAuth" target */,
-				FB91B34C2DEBAA19001AFD51 /* Exceptions for "MyAuth" folder in "MyAuthWatch" target */,
+				FB8F99D12DDA853D00C1675E /* Exceptions for "MyAuth" folder in "MyAuthPlus" target */,
+				FB91B34C2DEBAA19001AFD51 /* Exceptions for "MyAuth" folder in "MyAuthPlusWatch" target */,
 			);
 			path = MyAuth;
 			sourceTree = "<group>";
@@ -80,7 +80,7 @@
 		FB91B3372DEBA5A9001AFD51 /* WatchMyAuth Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				FB91B3512DEBAE0C001AFD51 /* Exceptions for "WatchMyAuth Watch App" folder in "MyAuthWatch" target */,
+				FB91B3512DEBAE0C001AFD51 /* Exceptions for "WatchMyAuth Watch App" folder in "MyAuthPlusWatch" target */,
 			);
 			path = "WatchMyAuth Watch App";
 			sourceTree = "<group>";
@@ -117,8 +117,8 @@
 		FB8F99A72DDA408600C1675E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FB8F99A62DDA408600C1675E /* MyAuth.app */,
-				FB91B3362DEBA5A9001AFD51 /* MyAuthWatch.app */,
+				FB8F99A62DDA408600C1675E /* MyAuthPlus.app */,
+				FB91B3362DEBA5A9001AFD51 /* MyAuthPlusWatch.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,9 +126,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FB8F99A52DDA408600C1675E /* MyAuth */ = {
+		FB8F99A52DDA408600C1675E /* MyAuthPlus */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FB8F99B12DDA408700C1675E /* Build configuration list for PBXNativeTarget "MyAuth" */;
+			buildConfigurationList = FB8F99B12DDA408700C1675E /* Build configuration list for PBXNativeTarget "MyAuthPlus" */;
 			buildPhases = (
 				FB8F99A22DDA408600C1675E /* Sources */,
 				FB8F99A32DDA408600C1675E /* Frameworks */,
@@ -143,16 +143,16 @@
 			fileSystemSynchronizedGroups = (
 				FB8F99A82DDA408600C1675E /* MyAuth */,
 			);
-			name = MyAuth;
+			name = MyAuthPlus;
 			packageProductDependencies = (
 			);
 			productName = MyAuth;
-			productReference = FB8F99A62DDA408600C1675E /* MyAuth.app */;
+			productReference = FB8F99A62DDA408600C1675E /* MyAuthPlus.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FB91B3352DEBA5A9001AFD51 /* MyAuthWatch */ = {
+		FB91B3352DEBA5A9001AFD51 /* MyAuthPlusWatch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FB91B3412DEBA5AA001AFD51 /* Build configuration list for PBXNativeTarget "MyAuthWatch" */;
+			buildConfigurationList = FB91B3412DEBA5AA001AFD51 /* Build configuration list for PBXNativeTarget "MyAuthPlusWatch" */;
 			buildPhases = (
 				FB91B3322DEBA5A9001AFD51 /* Sources */,
 				FB91B3332DEBA5A9001AFD51 /* Frameworks */,
@@ -165,11 +165,11 @@
 			fileSystemSynchronizedGroups = (
 				FB91B3372DEBA5A9001AFD51 /* WatchMyAuth Watch App */,
 			);
-			name = MyAuthWatch;
+			name = MyAuthPlusWatch;
 			packageProductDependencies = (
 			);
 			productName = "WatchMyAuth Watch App";
-			productReference = FB91B3362DEBA5A9001AFD51 /* MyAuthWatch.app */;
+			productReference = FB91B3362DEBA5A9001AFD51 /* MyAuthPlusWatch.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -190,7 +190,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FB8F99A12DDA408600C1675E /* Build configuration list for PBXProject "MyAuth" */;
+			buildConfigurationList = FB8F99A12DDA408600C1675E /* Build configuration list for PBXProject "MyAuthPlus" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -204,8 +204,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FB8F99A52DDA408600C1675E /* MyAuth */,
-				FB91B3352DEBA5A9001AFD51 /* MyAuthWatch */,
+				FB8F99A52DDA408600C1675E /* MyAuthPlus */,
+				FB91B3352DEBA5A9001AFD51 /* MyAuthPlusWatch */,
 			);
 		};
 /* End PBXProject section */
@@ -247,7 +247,7 @@
 /* Begin PBXTargetDependency section */
 		FB91B33F2DEBA5AA001AFD51 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FB91B3352DEBA5A9001AFD51 /* MyAuthWatch */;
+			target = FB91B3352DEBA5A9001AFD51 /* MyAuthPlusWatch */;
 			targetProxy = FB91B33E2DEBA5AA001AFD51 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -387,6 +387,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyAuth/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs camera access to scan QR codes.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "This app needs to authenticate to edit the secret account code.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -419,6 +421,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyAuth/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs camera access to scan QR codes.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "This app needs to authenticate to edit the secret account code.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -450,15 +454,15 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/WatchMyAuth Watch App/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = MyAuth;
+				INFOPLIST_KEY_CFBundleDisplayName = MyAuthPlus;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.jacklr.MyAuth;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.jacklr.MyAuthPlus;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jacklr.MyAuth.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jacklr.MyAuthPlus.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -481,15 +485,15 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/WatchMyAuth Watch App/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = MyAuth;
+				INFOPLIST_KEY_CFBundleDisplayName = MyAuthPlus;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.jacklr.MyAuth;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.jacklr.MyAuthPlus;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jacklr.MyAuth.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jacklr.MyAuthPlus.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -503,7 +507,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FB8F99A12DDA408600C1675E /* Build configuration list for PBXProject "MyAuth" */ = {
+		FB8F99A12DDA408600C1675E /* Build configuration list for PBXProject "MyAuthPlus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FB8F99AF2DDA408700C1675E /* Debug */,
@@ -512,7 +516,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FB8F99B12DDA408700C1675E /* Build configuration list for PBXNativeTarget "MyAuth" */ = {
+		FB8F99B12DDA408700C1675E /* Build configuration list for PBXNativeTarget "MyAuthPlus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FB8F99B22DDA408700C1675E /* Debug */,
@@ -521,7 +525,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FB91B3412DEBA5AA001AFD51 /* Build configuration list for PBXNativeTarget "MyAuthWatch" */ = {
+		FB91B3412DEBA5AA001AFD51 /* Build configuration list for PBXNativeTarget "MyAuthPlusWatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FB91B3422DEBA5AA001AFD51 /* Debug */,
