@@ -18,7 +18,21 @@
                BlueprintIdentifier = "FB8F99A52DDA408600C1675E"
                BuildableName = "MyAuthPlus.app"
                BlueprintName = "MyAuthPlus"
-               ReferencedContainer = "container:MyAuthPlus.xcodeproj">
+               ReferencedContainer = "container:MyAuth.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FB91B3352DEBA5A9001AFD51"
+               BuildableName = "MyAuthPlusWatch.app"
+               BlueprintName = "MyAuthPlusWatch"
+               ReferencedContainer = "container:MyAuth.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,7 +61,7 @@
             BlueprintIdentifier = "FB8F99A52DDA408600C1675E"
             BuildableName = "MyAuthPlus.app"
             BlueprintName = "MyAuthPlus"
-            ReferencedContainer = "container:MyAuthPlus.xcodeproj">
+            ReferencedContainer = "container:MyAuth.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -64,7 +78,7 @@
             BlueprintIdentifier = "FB8F99A52DDA408600C1675E"
             BuildableName = "MyAuthPlus.app"
             BlueprintName = "MyAuthPlus"
-            ReferencedContainer = "container:MyAuthPlus.xcodeproj">
+            ReferencedContainer = "container:MyAuth.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -190,7 +190,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FB8F99A12DDA408600C1675E /* Build configuration list for PBXProject "MyAuthPlus" */;
+			buildConfigurationList = FB8F99A12DDA408600C1675E /* Build configuration list for PBXProject "MyAuth" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -507,7 +507,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FB8F99A12DDA408600C1675E /* Build configuration list for PBXProject "MyAuthPlus" */ = {
+		FB8F99A12DDA408600C1675E /* Build configuration list for PBXProject "MyAuth" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FB8F99AF2DDA408700C1675E /* Debug */,
