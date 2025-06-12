@@ -194,6 +194,7 @@ struct AuthMainView: View {
         }
         .onAppear {
             startTimer()
+            WatchSyncManager.shared.sync(accounts: accounts)
         }
         .preferredColorScheme(isDarkMode ? .dark : .light)
     }

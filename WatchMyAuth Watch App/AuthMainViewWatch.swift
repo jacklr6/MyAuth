@@ -9,10 +9,13 @@ import SwiftUI
 import SwiftData
 
 struct AuthMainViewWatch: View {
+    @Environment(\.modelContext) var modelContext
     @Query private var accounts: [TOTPAccount]
     @State private var showSettings: Bool = false
 
     var body: some View {
+        let _ = WatchDataReceiver(context: modelContext)
+        
         NavigationStack {
             VStack {
                 if accounts.isEmpty {
