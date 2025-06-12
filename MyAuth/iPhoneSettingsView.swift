@@ -75,6 +75,16 @@ struct iPhoneSettingsView: View {
                             }
                         }
                         
+                        Section(header: Text("Developer"), footer: Text("Only available to beta testers in TestFlight.")) {
+                            NavigationLink(destination: DeveloperView(), label: {
+                                HStack {
+                                    Text("Developer Instructions")
+                                    Spacer()
+                                    Image(systemName: "hammer.fill")
+                                }
+                            })
+                        }
+                        
                         Section(header: Text("Your Data"), footer: Text("Remove all data in MyAuth.")) {
                             Button(action: {
                                 showResetWarning = true
@@ -336,7 +346,89 @@ struct DatePickerView: View {
     }
 }
 
+struct DeveloperView: View {
+    @Environment(\.openURL) private var openURL
+    
+    var body: some View {
+        NavigationStack {
+            VStack {
+                Form {
+                    Section {
+                        HStack {
+                            Spacer()
+                            VStack {
+                                Image(systemName: "person.badge.plus")
+                                    .font(.system(size: 48))
+                                    .shadow(color: Color.black.opacity(0.6), radius: 6, x: 8, y: 8)
+                                Text("Test Accounts")
+                                    .font(.system(size: 24, weight: .semibold))
+                                Text("Follow the link below to generate a QR Code to test the app on your device!")
+                            }
+                            Spacer()
+                        }
+                        .multilineTextAlignment(.center)
+                        .padding(.vertical, 8)
+                    }
+                    .listSectionSpacing(10)
+                    
+                    Section {
+                        Button {
+                            if let url = URL(string: "https://stefansundin.github.io/2fa-qr/") {
+                                openURL(url)
+                            }
+                        } label: {
+                            Label("Test an Account via QR Codes", systemImage: "qrcode")
+                        }
+                    }
+                    
+                    Section {
+                        HStack {
+                            Spacer()
+                            VStack {
+                                Image(systemName: "bubble.and.pencil")
+                                    .font(.system(size: 48))
+                                    .padding(.top, -5)
+                                    .shadow(color: Color.black.opacity(0.6), radius: 6, x: 8, y: 8)
+                                Text("Submit Feedback")
+                                    .font(.system(size: 24, weight: .semibold))
+                                Text("Follow the link below to submit feedback to my GitHub Repo or in the TestFlight App!")
+                            }
+                            Spacer()
+                        }
+                        .multilineTextAlignment(.center)
+                        .padding(.vertical, 8)
+                    }
+                    
+                    Section {
+                        Button {
+                            if let url = URL(string: "https://github.com/jacklr6/MyAuth/") {
+                                openURL(url)
+                            }
+                        } label: {
+                            Label("Submit Feedback via GitHub", systemImage: "network")
+                        }
+                    }
+                    .listSectionSpacing(10)
+                    
+                    Section {
+                        Button {
+                            if let url = URL(string: "itms-beta://") {
+                                openURL(url)
+                            }
+                        } label: {
+                            Label("Submit Feedback via TestFlight", systemImage: "arrow.turn.up.right")
+                        }
+                    }
+                    .listSectionSpacing(10)
+                }
+            }
+            .navigationTitle(Text("Developer"))
+        }
+    }
+}
+
 #Preview {
-    iPhoneSettingsView()
+//    iPhoneSettingsView()
 //    DatePickerView()
+    DeveloperView()
 }
