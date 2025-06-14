@@ -23,9 +23,17 @@ struct iPhoneSettingsView: View {
     @State private var progressAccentColor: Color = .orange
     @State private var showResetWarning: Bool = false
     @State private var showDeleteWarning: Bool = false
+    @State private var checkOSVersion: String = ""
     
     var appVersion: String {
         Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
+    }
+    
+    var isTestFlight: Bool {
+        guard let appStoreReceiptURL = Bundle.main.appStoreReceiptURL else {
+            return false
+        }
+        return appStoreReceiptURL.lastPathComponent == "sandboxReceipt"
     }
     
     var body: some View {
@@ -75,14 +83,16 @@ struct iPhoneSettingsView: View {
                             }
                         }
                         
-                        Section(header: Text("Developer"), footer: Text("Only available to beta testers in TestFlight.")) {
-                            NavigationLink(destination: DeveloperView(), label: {
-                                HStack {
-                                    Text("Developer Instructions")
-                                    Spacer()
-                                    Image(systemName: "hammer.fill")
-                                }
-                            })
+                        if isTestFlight {
+                            Section(header: Text("Developer"), footer: Text("Only available to beta testers in TestFlight.")) {
+                                NavigationLink(destination: DeveloperView(), label: {
+                                    HStack {
+                                        Text("Developer Settings")
+                                        Spacer()
+                                        Image(systemName: "hammer.fill")
+                                    }
+                                })
+                            }
                         }
                         
                         Section(header: Text("Your Data"), footer: Text("Remove all data in MyAuth.")) {
@@ -129,7 +139,7 @@ struct iPhoneSettingsView: View {
                             HStack {
                                 Spacer()
                                 VStack {
-                                    Text("MyAuth for iOS | \(Text("\(appVersion) Beta").fontWeight(.bold).foregroundStyle(LinearGradient(gradient: Gradient(colors: [.green, .blue]), startPoint: .topLeading, endPoint: .bottomTrailing)))")
+                                    Text("MyAuth for \(checkOSVersion) | \(Text("\(appVersion) Beta").fontWeight(.bold).foregroundStyle(LinearGradient(gradient: Gradient(colors: [.green, .blue]), startPoint: .topLeading, endPoint: .bottomTrailing)))")
                                     Text("Jack Rogers | 2025")
                                 }
                                 .font(.footnote)
@@ -147,13 +157,20 @@ struct iPhoneSettingsView: View {
                 if let savedColor = Color(hex: timerAccentColorHex) {
                     timerAccentColor = savedColor
                 }
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    checkOSVersion = "iPadOS"
+                } else if UIDevice.current.userInterfaceIdiom == .phone {
+                    checkOSVersion = "iOS"
+                } else if UIDevice.current.userInterfaceIdiom == .tv {
+                    checkOSVersion = "TVOS"
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: { dismiss() }) {
                         Image(systemName: "xmark")
                             .fontWeight(.semibold)
-                            .foregroundStyle(.black)
+                            .foregroundStyle(Color.primary)
                     }
                 }
             }
@@ -243,7 +260,7 @@ struct DatePickerView: View {
         NavigationView {
             VStack {
                 Form {
-                    Section(header: Text("Available Formats"), footer: Text("Tap the circle to choose how the time is displayed above.")) {
+                    Section(header: Text("Available Formats"), footer: Text("Tap the circle to choose how the time is displayed above \nNote: Some time formats may not display fully on all screen types.")) {
                         ForEach(dateFormats, id: \.name) { format in
                             HStack {
                                 Button(action: {
@@ -401,7 +418,7 @@ struct DeveloperView: View {
                     
                     Section {
                         Button {
-                            if let url = URL(string: "https://github.com/jacklr6/MyAuth/") {
+                            if let url = URL(string: "https://github.com/jacklr6/") {
                                 openURL(url)
                             }
                         } label: {
@@ -428,7 +445,7 @@ struct DeveloperView: View {
 }
 
 #Preview {
-//    iPhoneSettingsView()
+    iPhoneSettingsView()
 //    DatePickerView()
-    DeveloperView()
+//    DeveloperView()
 }
